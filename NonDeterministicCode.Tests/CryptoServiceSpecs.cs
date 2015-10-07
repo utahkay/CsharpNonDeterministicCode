@@ -1,4 +1,5 @@
-﻿using Machine.Specifications;
+﻿using System.Text.RegularExpressions;
+using Machine.Specifications;
 
 namespace NonDeterministicCode.Tests
 {
@@ -7,7 +8,7 @@ namespace NonDeterministicCode.Tests
 //    {
 //        Because of = () => result = ClassUnderTest.GenerateRandomNumericString();
 //
-//        It should_not_blow_up = () => { };
+//        It should_generate_a_numeric_string = () => new Regex(@"[\d+]").IsMatch(result).ShouldBeTrue();
 //
 //        static string result;
 //    }

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace NonDeterministicCode
+﻿namespace NonDeterministicCode
 {
     public interface IMailRequester
     {
