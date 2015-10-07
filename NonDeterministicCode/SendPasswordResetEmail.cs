@@ -9,7 +9,8 @@ namespace NonDeterministicCode
         readonly IResetPasswordConfirmationRepository resetPasswordConfirmationRepository;
         public const string ResetPasswordUri = "http://forgotpassword.ps.com?token=";
 
-        public SendPasswordResetEmail(IMailRequester mailRequester, IResetPasswordConfirmationRepository resetPasswordConfirmationRepository)
+        public SendPasswordResetEmail(IMailRequester mailRequester, 
+            IResetPasswordConfirmationRepository resetPasswordConfirmationRepository)
         {
             this.mailRequester = mailRequester;
             this.resetPasswordConfirmationRepository = resetPasswordConfirmationRepository;
