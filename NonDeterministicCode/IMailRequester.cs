@@ -4,6 +4,6 @@ namespace NonDeterministicCode
 {
     public interface IMailRequester
     {
-        void Request(object template, Dictionary<string, string> values, string recipient);
+        void Request(object template, string values, string recipient);
     }
 }

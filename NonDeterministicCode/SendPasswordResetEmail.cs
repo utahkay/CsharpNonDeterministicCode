@@ -20,8 +20,7 @@ namespace NonDeterministicCode
         public void Send(string userHandle, string userEmailAddress)
         {
             var uri = GenerateTokenUri(userHandle);
-            var values = new Dictionary<string, string> { {"RESET_PASSWORD_URL", uri} };
-            mailRequester.Request(MailTemplates.PasswordResetEmail, values, userEmailAddress);
+            mailRequester.Request(MailTemplates.PasswordResetEmail, uri, userEmailAddress);
         }
 
         public string GenerateTokenUri(string userHandle)

@@ -14,7 +14,7 @@ namespace NonDeterministicCode.Tests
         It should_send_the_email = () => GetTestDouble<IMailRequester>()
             .Verify(x => x.Request(
                 MailTemplates.PasswordResetEmail,
-                Moq.It.Is<Dictionary<string, string>>(d => d.ContainsKey("RESET_PASSWORD_URL")),
+                Moq.It.IsAny<string>(),
                 "kay-johansen@pluralsight.com"));
     }
 }
