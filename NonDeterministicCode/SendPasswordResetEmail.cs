@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using System.Text;
 
 namespace NonDeterministicCode
@@ -9,7 +8,6 @@ namespace NonDeterministicCode
         readonly IMailRequester mailRequester;
         readonly IResetPasswordConfirmationRepository resetPasswordConfirmationRepository;
         const string ResetPasswordUri = "http://forgotpassword.ps.com?token=";
-        const int KeyLength = 16;
 
         public SendPasswordResetEmail(IMailRequester mailRequester, IResetPasswordConfirmationRepository resetPasswordConfirmationRepository)
         {
@@ -19,20 +17,16 @@ namespace NonDeterministicCode
 
         public void Send(string userHandle, string userEmailAddress)
         {
-            var uri = GenerateTokenUri(userHandle);
+            var token = GenerateRandomNumericString();
+            resetPasswordConfirmationRepository.CreateTrackingFile(userHandle, token);
+            var uri = ResetPasswordUri + token;
             mailRequester.Request(MailTemplates.PasswordResetEmail, uri, userEmailAddress);
         }
 
-        public string GenerateTokenUri(string userHandle)
+        public static string GenerateRandomNumericString()
         {
-            var token = GenerateRandomNumericString(KeyLength);
-            resetPasswordConfirmationRepository.CreateTrackingFile(userHandle, token);
-            return ResetPasswordUri + token;
-        }
-
-        public static string GenerateRandomNumericString(int length)
-        {
-            var randomBytes = new byte[length];
+            const int keyLength = 16;
+            var randomBytes = new byte[keyLength];
             new RNGCryptoServiceProvider().GetBytes(randomBytes);
             var sb = new StringBuilder();
             foreach (var randomByte in randomBytes)
