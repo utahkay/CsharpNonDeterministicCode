@@ -63,6 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CryptoServiceSpecs.cs" />
     <Compile Include="SendPasswordResetEmailSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="With_an_automocked.cs" />

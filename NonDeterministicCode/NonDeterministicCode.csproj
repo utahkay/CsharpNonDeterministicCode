@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CryptoService.cs" />
+    <Compile Include="ICryptoService.cs" />
     <Compile Include="IMailRequester.cs" />
     <Compile Include="IResetPasswordConfirmationRepository.cs" />
     <Compile Include="MailTemplates.cs" />
