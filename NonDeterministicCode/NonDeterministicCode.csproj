@@ -50,8 +50,10 @@
     <Compile Include="CryptoService.cs" />
     <Compile Include="ICryptoService.cs" />
     <Compile Include="IMailRequester.cs" />
+    <Compile Include="IRandomBytesProvider.cs" />
     <Compile Include="IResetPasswordConfirmationRepository.cs" />
     <Compile Include="MailTemplates.cs" />
+    <Compile Include="RNGBytesProvider.cs" />
     <Compile Include="SendPasswordResetEmail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
